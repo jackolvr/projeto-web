@@ -2,10 +2,10 @@
 <html lang="en">
 
 <!--================================================================================
-  Item Name: Materialize - Material Design Admin Template
-  Version: 1.0
-  Author: GeeksLabs
-  Author URL: http://www.themeforest.net/user/geekslabs
+	Item Name: Materialize - Material Design Admin Template
+	Version: 1.0
+	Author: GeeksLabs
+	Author URL: http://www.themeforest.net/user/geekslabs
 ================================================================================ -->
 
 <head>
@@ -15,7 +15,7 @@
   <meta name="msapplication-tap-highlight" content="no">
   <meta name="description" content="Materialize is a Material Design Admin Template,It's modern, responsive and based on Material Design by Google. ">
   <meta name="keywords" content="materialize, admin template, dashboard template, flat admin template, responsive admin template,">
-  <title>SCMC | Novo Usuário</title>
+  <title>SCMC | Usuários</title>
 
   <!-- Favicons-->
   <link rel="icon" href="images/favicon/favicon-32x32.png" sizes="32x32">
@@ -31,11 +31,14 @@
   
   <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection">
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection">
+  <link href="http://cdn.datatables.net/1.10.6/css/jquery.dataTables.min.css" type="text/css" rel="stylesheet" media="screen,projection">
+  
 
 
   <!-- INCLUDED PLUGIN CSS ON THIS PAGE -->
   <link href="css/prism.css" type="text/css" rel="stylesheet" media="screen,projection">
   <link href="js/plugins/perfect-scrollbar/perfect-scrollbar.css" type="text/css" rel="stylesheet" media="screen,projection">
+  <link href="js/plugins/data-tables/css/jquery.dataTables.min.css" type="text/css" rel="stylesheet" media="screen,projection">
   <link href="js/plugins/chartist-js/chartist.min.css" type="text/css" rel="stylesheet" media="screen,projection">
 </head>
 
@@ -147,7 +150,7 @@
           <div class="container">
             <div class="row">
               <div class="col s12 m12 l12">
-                <h5 class="breadcrumbs-title">Cadastro de Usuários</h5>
+                <h5 class="breadcrumbs-title">Usuários do Sistema</h5>
                 <br>
               </div>
             </div>
@@ -159,62 +162,51 @@
         <!--start container-->
         <div class="container">
           <div class="section">
-            <!--Basic Form-->
-            <div id="basic-form" class="section">
+            <!--DataTables example Row grouping-->
+            <div id="row-grouping" class="section">
               <div class="row">
-                <div class="col s12 m12 l12">
-                  <div class="card-panel">
-                    <h4 class="header2">Cadastrar um novo login</h4>
-                    <div class="row">
-                      <form class="col s12">
-                        <div class="row">
-                          <div class="input-field col s4">
-                              <select>
-                                  <option value="1">Pastor</option>
-                                  <option value="2">Secretario</option>
-                              </select>
-                              <label>Função:</label>
-                          </div>
-                          <div class="input-field col s8">
-                            <input id="nome" type="text">
-                            <label for="nome">nome:</label>
-                          </div>
-                        </div>
-                        <div class="row">
-                          <div class="input-field col s6">
-                            <input id="login" type="text">
-                            <label for="login">Login:</label>
-                          </div>
-                          <div class="input-field col s6">
-                            <input id="senha" type="password">
-                            <label for="senha">Senha:</label>
-                          </div>
-                          <br><br><br><br><br><br>
-                          <div id="submit-button" class="section">
-                    <div class="col s6 m10 l9">
-                      <button class="btn waves-effect waves-light indigo right" type="submit" name="action">Salvar
-                        <i class="mdi-content-send right"></i>
-                      </button>
-                      <button class="btn waves-effect waves-light yellow darken-4" type="submit" name="action">Cancelar
-                        <i class="mdi-content-reply left"></i>
-                      </button>
-                    </div>
-                </div>
-                        </div>
-                      </form>
-                    </div>
-                  </div>
+                <div class="col s12 m8 l12">
+                    <table id="data-table-simple" class="responsive-table display" border-space="0">
+                      <thead>
+                          <tr>
+                              <th>Name</th>
+                              <th>Position</th>
+                              <th>Office</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <tr>
+                              <td>Tiger Nixon</td>
+                              <td>System Architect</td>
+                              <td>Edinburgh</td>
+                          </tr>
+                          <tr>
+                              <td>Tiger Nixon</td>
+                              <td>System Architect</td>
+                              <td>Edinburgh</td>
+                          </tr>
+                          <tr>
+                              <td>Tiger Nixon</td>
+                              <td>System Architect</td>
+                              <td>Edinburgh</td>
+                          </tr>
+                      </tbody>
+                  </table>
                 </div>
               </div>
             </div>
-          </div>
-      </div>
-    </section>
-    <!-- END CONTENT -->
 
-    <!-- //////////////////////////////////////////////////////////////////////////// -->
-    <!-- START RIGHT SIDEBAR NAV-->
-    <aside id="right-sidebar-nav">
+          </div>
+
+        </div>
+        <!--end container-->
+
+      </section>
+      <!-- END CONTENT -->
+
+      <!-- //////////////////////////////////////////////////////////////////////////// -->
+      <!-- START RIGHT SIDEBAR NAV-->
+      <aside id="right-sidebar-nav">
         <ul id="chat-out" class="side-nav rightside-navigation">
             <li class="li-hover">
             <a href="#" data-activates="chat-out" class="chat-close-collapse right"><i class="mdi-navigation-close"></i></a>
@@ -222,8 +214,8 @@
                 <form class="col s12">
                     <div class="input-field">
                         <i class="mdi-action-search prefix"></i>
-                        <input id="icon_prefix3" type="text" class="validate">
-                        <label for="icon_prefix">Search</label>
+                        <input id="icon_prefix" type="text" class="validate">
+                        <label for="icon_prefix">Buscar</label>
                     </div>
                 </form>
             </div>
@@ -349,7 +341,7 @@
             </li>
         </ul>
       </aside>
-    <!-- LEFT RIGHT SIDEBAR NAV-->
+      <!-- LEFT RIGHT SIDEBAR NAV-->
 
     </div>
     <!-- END WRAPPER -->
@@ -384,12 +376,14 @@
     <script type="text/javascript" src="js/prism.js"></script>
     <!--scrollbar-->
     <script type="text/javascript" src="js/plugins/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+    <!-- data-tables -->
+    <script type="text/javascript" src="js/plugins/data-tables/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="js/plugins/data-tables/data-tables-script.js"></script>
     <!-- chartist -->
     <script type="text/javascript" src="js/plugins/chartist-js/chartist.min.js"></script>   
     
     <!--plugins.js - Some Specific JS codes for Plugin Settings-->
-    <script type="text/javascript" src="js/plugins.js"></script>
-    
+    <script type="text/javascript" src="js/plugins.js"></script>    
 </body>
 
 </html>

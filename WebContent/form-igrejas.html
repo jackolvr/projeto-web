@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="igrejaModulo">
 
 <!--================================================================================
   Item Name: Materialize - Material Design Admin Template
@@ -15,7 +15,7 @@
   <meta name="msapplication-tap-highlight" content="no">
   <meta name="description" content="Materialize is a Material Design Admin Template,It's modern, responsive and based on Material Design by Google. ">
   <meta name="keywords" content="materialize, admin template, dashboard template, flat admin template, responsive admin template,">
-  <title>SCMC | Cadastro</title>
+  <title>SCMC | Nova Igreja</title>
 
   <!-- Favicons-->
   <link rel="icon" href="images/favicon/favicon-32x32.png" sizes="32x32">
@@ -37,9 +37,28 @@
   <link href="css/prism.css" type="text/css" rel="stylesheet" media="screen,projection">
   <link href="js/plugins/perfect-scrollbar/perfect-scrollbar.css" type="text/css" rel="stylesheet" media="screen,projection">
   <link href="js/plugins/chartist-js/chartist.min.css" type="text/css" rel="stylesheet" media="screen,projection">
+  <!-- ================================================
+    Scripts
+    ================================================ -->
+    
+    <!-- jQuery Library -->
+    <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>    
+    <!--materialize js-->
+    <script type="text/javascript" src="js/materialize.js"></script>
+    <!--prism-->
+    <script type="text/javascript" src="js/prism.js"></script>
+    <!--scrollbar-->
+    <script type="text/javascript" src="js/plugins/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+    <!-- chartist -->
+    <script type="text/javascript" src="js/plugins/chartist-js/chartist.min.js"></script>   
+    
+    <!--plugins.js - Some Specific JS codes for Plugin Settings-->
+    <script type="text/javascript" src="js/plugins.js"></script>
+    <script type="text/javascript" src="js/angular.min.js"></script>
+    <script type="text/javascript" src="controller/igreja.js"></script>
 </head>
 
-<body>
+<body ng-controller="igrejaController">
     <!-- Start Page Loading -->
     <div id="loader-wrapper">
         <div id="loader"></div>
@@ -94,28 +113,28 @@
                 </li>
                 <li class="bold"><a href="index.html" class="waves-effect waves-cyan"><i class="mdi-action-dashboard"></i> Home</a>
                 </li>
-                <li class="bold"><a href="calendario.html" class="waves-effect waves-cyan"><i class="mdi-editor-insert-invitation"></i> Calendário</a>
+                <li class="bold"><a href="eventos.html" class="waves-effect waves-cyan"><i class="mdi-editor-insert-invitation"></i> Eventos</a>
                 </li>
-                <li class="bold"><a href="listagem.html" class="waves-effect waves-cyan"><i class="mdi-action-account-circle"></i> Buscar Membro</a>
+                <li class="bold"><a href="listar-membros.html" class="waves-effect waves-cyan"><i class="mdi-action-account-circle"></i> Buscar Membro</a>
                 </li>
                 <li class="no-padding">
                     <ul class="collapsible collapsible-accordion">
-                        <li class="bold"><a class="collapsible-header  waves-effect waves-cyan"><i class="mdi-editor-insert-comment"></i> Gerênciar igrejas</a>
+                        <li class="bold"><a class="collapsible-header  waves-effect waves-cyan"><i class="mdi-editor-insert-comment"></i> Gerênciar Igrejas</a>
                             <div class="collapsible-body">
                                 <ul>
-                                    <li><a href="form-igrejas.html">Cadastrar igreja</a>
+                                    <li><a href="form-igrejas.html">Cadastrar Igreja</a>
                                     </li>
-                                    <li><a href="listagem.html">Listar igrejas</a>
+                                    <li><a href="listar-igreja.html">Igrejas Cadastradas</a>
                                     </li>
                                 </ul>
                             </div>
                         </li>
-                        <li class="bold"><a class="collapsible-header  waves-effect waves-cyan"><i class="mdi-editor-insert-comment"></i> Gerênciar membros</a>
+                        <li class="bold"><a class="collapsible-header  waves-effect waves-cyan"><i class="mdi-editor-insert-comment"></i> Gerênciar Membros</a>
                             <div class="collapsible-body">
                                 <ul>
-                                    <li><a href="form-membros.html">Cadastrar membro</a>
+                                    <li><a href="form-membros.html">Cadastrar Membro</a>
                                     </li>
-                                    <li><a href="listagem.html">Listar membros</a>
+                                    <li><a href="listar-membros.html">Buscar Membros</a>
                                     </li>
                                 </ul>
                             </div>
@@ -125,7 +144,7 @@
                                 <ul>
                                     <li><a href="form-sec-pastor.html">Cadastrar Secr/Pastor</a>
                                     </li>
-                                    <li><a href="listagem.html">Listar membros</a>
+                                    <li><a href="listar-usuarios.html">Listar Cadastrados</a>
                                     </li>
                                 </ul>
                             </div>
@@ -147,7 +166,7 @@
           <div class="container">
             <div class="row">
               <div class="col s12 m12 l12">
-                <h5 class="breadcrumbs-title">Cadastro</h5>
+                <h5 class="breadcrumbs-title">Cadastro de Igreja</h5>
                 <br>
               </div>
             </div>
@@ -373,23 +392,6 @@
 
 
 
-    <!-- ================================================
-    Scripts
-    ================================================ -->
-    
-    <!-- jQuery Library -->
-    <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>    
-    <!--materialize js-->
-    <script type="text/javascript" src="js/materialize.js"></script>
-    <!--prism-->
-    <script type="text/javascript" src="js/prism.js"></script>
-    <!--scrollbar-->
-    <script type="text/javascript" src="js/plugins/perfect-scrollbar/perfect-scrollbar.min.js"></script>
-    <!-- chartist -->
-    <script type="text/javascript" src="js/plugins/chartist-js/chartist.min.js"></script>   
-    
-    <!--plugins.js - Some Specific JS codes for Plugin Settings-->
-    <script type="text/javascript" src="js/plugins.js"></script>
     
 </body>
 
