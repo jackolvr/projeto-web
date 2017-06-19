@@ -1,51 +1,52 @@
 package model;
 
 import java.io.Serializable;
+import java.sql.Date;
+import java.sql.Time;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
 @Entity
-@Table(name="usuarios")
-public class UsuariosModel implements Serializable {
+@Table(name="eventos")
+public class EventosModel implements Serializable{
 
+	
 	private static final long serialVersionUID = 1L;
 	
 	@Id //indica a chave primaria 
 	@GeneratedValue(strategy=GenerationType.IDENTITY) //gera valor automaticamente
-	@Column(name="idUsuario")
+	@Column(name="idEventos")
 	Integer id;
-	@Column(name="funcao", length=20, nullable=true)
-	String funcao;
-	@Column(name="nome", length=45, nullable=true)
-	String Nome;
-	@Column(name="login", length=20, nullable=false)
-	String login;
-	@Column(name="senha", length=20, nullable=false)
-	String senha;
+	Date data;
+	Time hora;
+	String descricao;
 	
 	
+	@ManyToOne
+	@JoinColumn(name="idUsuario", referencedColumnName="idUsuario")
+	UsuariosModel UsuariosModel;
 	
-	public UsuariosModel() {
+	public EventosModel() {
 		// TODO Auto-generated constructor stub
 	}
-	
-	public UsuariosModel(Integer id, String funcao, String nome, String login, String senha) {
+
+	public EventosModel(Integer id, Date data, Time hora, String descricao) {
 		this.id = id;
-		this.funcao = funcao;
-		Nome = nome;
-		this.login = login;
-		this.senha = senha;
+		this.data = data;
+		this.hora = hora;
+		this.descricao = descricao;
+		
 	}
-	
-	
-	
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -62,7 +63,7 @@ public class UsuariosModel implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		UsuariosModel other = (UsuariosModel) obj;
+		EventosModel other = (EventosModel) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
@@ -74,33 +75,35 @@ public class UsuariosModel implements Serializable {
 	public Integer getId() {
 		return id;
 	}
+
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public String getFuncao() {
-		return funcao;
-	}
-	public void setFuncao(String funcao) {
-		this.funcao = funcao;
-	}
-	public String getNome() {
-		return Nome;
-	}
-	public void setNome(String nome) {
-		Nome = nome;
-	}
-	public String getLogin() {
-		return login;
-	}
-	public void setLogin(String login) {
-		this.login = login;
-	}
-	public String getSenha() {
-		return senha;
-	}
-	public void setSenha(String senha) {
-		this.senha = senha;
+
+	public Date getData() {
+		return data;
 	}
 
+	public void setData(Date data) {
+		this.data = data;
+	}
+
+	public Time getHora() {
+		return hora;
+	}
+
+	public void setHora(Time hora) {
+		this.hora = hora;
+	}
+
+	public String getDescricao() {
+		return descricao;
+	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+
+	
 	
 }

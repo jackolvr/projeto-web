@@ -1,8 +1,8 @@
 package facade;
 
-import java.util.ArrayList;
 import java.util.List;
 
+import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -14,6 +14,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import model.IgrejaModel;
+import model.servico.IgrejaServInterfac;
 
 
 
@@ -22,36 +23,30 @@ import model.IgrejaModel;
 @Consumes(MediaType.APPLICATION_JSON)
 public class IgrejaFacade {
 	
-	static List<IgrejaModel> listaIgreja = new ArrayList<IgrejaModel>();
-	
-	static {
-		listaIgreja.add(new IgrejaModel(1,00000000000000L,"Igreja Um","endereço um", 8599994455L,"cabeçalho"));
-	}
+	@Inject
+	private IgrejaServInterfac igrejaServInterface;
 	
 	@GET
-	public List<IgrejaModel> getIgrejaModel(){
-		return listaIgreja;
+	public List<IgrejaModel> getIgreja(){
+		return igrejaServInterface.getIgreja();
 	}
-	
+
 	@POST
-	public IgrejaModel salvar(IgrejaModel igreja){
-		listaIgreja.add(igreja);
-		return igreja;
-		
+	public IgrejaModel salvarIgreja(IgrejaModel igrejaModel){
+		return igrejaServInterface.salvarIgreja(igrejaModel);
 	}
 	
 	@PUT
-	public void atualizar(IgrejaModel igreja){
-		listaIgreja.remove(igreja);
-		listaIgreja.add(igreja);
+	public void atualizar(IgrejaModel igrejaModel){
+		igrejaServInterface.alterar(igrejaModel);
 	}
 	
 	@DELETE
 	@Path("/{idIgreja}")
-	public void excluir(@PathParam("idIgreja") Integer idIgreja){
-		IgrejaModel igreja = new IgrejaModel();
-		igreja.setId(idIgreja);
-		listaIgreja.remove(igreja);
+	public void exclui(@PathParam("idIgreja") Integer idIgreja ){
+		IgrejaModel igrejaModel = new IgrejaModel();
+		igrejaModel.setId(idIgreja);
+		igrejaServInterface.excluir(igrejaModel);
 	}
 
 }

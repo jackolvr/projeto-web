@@ -1,8 +1,8 @@
 package facade;
 
-import java.util.ArrayList;
 import java.util.List;
 
+import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -14,41 +14,38 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import model.UsuariosModel;
+import model.servico.UsuariosServInterface;
+
+
 
 @Path("/usuarios")
 @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
 @Consumes(MediaType.APPLICATION_JSON)
 public class UsuariosFacade {
 
-	static List<UsuariosModel> listaUsuarios = new ArrayList<UsuariosModel>();
-	
-	static {
-		listaUsuarios.add(new UsuariosModel(1,"secretario","Joao","costa.joao","123456"));
-	}
+	@Inject
+	private UsuariosServInterface usuariosServInterface;
 	
 	@GET
-	public List<UsuariosModel> getUsuariosModel(){
-		return listaUsuarios;
+	public List<UsuariosModel> getUsuarios(){
+		return usuariosServInterface.getUsuarios();
 	}
-	
+
 	@POST
-	public UsuariosModel salvar(UsuariosModel usuario){
-		listaUsuarios.add(usuario);
-		return usuario;
-		
+	public UsuariosModel salvarUsuarios(UsuariosModel usuariosModel){
+		return usuariosServInterface.salvarUsuario(usuariosModel);
 	}
 	
 	@PUT
-	public void atualizar(UsuariosModel usuario){
-		listaUsuarios.remove(usuario);
-		listaUsuarios.add(usuario);
+	public void atualizar(UsuariosModel usuariosModel){
+		usuariosServInterface.alterar(usuariosModel);
 	}
 	
 	@DELETE
 	@Path("/{idUsuario}")
-	public void excluir(@PathParam("idUsuario") Integer idUsuario){
-		UsuariosModel usuario = new UsuariosModel();
-		usuario.setId(idUsuario);
-		listaUsuarios.remove(usuario);
+	public void exclui(@PathParam("idUsuario") Integer idUsuario ){
+		UsuariosModel usuariosModel = new UsuariosModel();
+		usuariosModel.setId(idUsuario);
+		usuariosServInterface.excluir(usuariosModel);
 	}
 }

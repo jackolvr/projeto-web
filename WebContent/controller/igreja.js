@@ -1,7 +1,7 @@
 var igrejaModulo = angular.module('igrejaModulo',[]);
 
 	igrejaModulo.controller("igrejaController", function ($scope, $http) {
-	urlIgreja= 'http://localhost:8089/rest/igreja';
+	urlIgreja= 'http://localhost:8089/scmcTeste2/rest/igreja';
 
 	$scope.listarIgreja = function() {
 		$http.get(urlIgreja).sucess(function (igreja){

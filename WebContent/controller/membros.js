@@ -1,7 +1,7 @@
 var membrosModulo = angular.module('membrosModulo',[]);
 
 	membrosModulo.controller("membrosController", function ($scope, $http) {
-	urlMembros= 'http://localhost:8089/rest/membros';
+	var urlMembros = 'http://localhost:8089/scmcTeste2/rest/membros';
 
 	$scope.listarMembros = function() {
 		$http.get(urlMembros).sucess(function (membros){
@@ -18,7 +18,7 @@ var membrosModulo = angular.module('membrosModulo',[]);
 	
 
 	$scope.salvar = function () {
-		if($scope.membros.codigo == undefined){
+		if($scope.membros.idMembros == undefined){
 			$http.post(urlMembros,$scope.membros).sucess(function (membros){
 				$scope.membros.push($scope.membros);
 				$scope.limparCampos();
@@ -37,10 +37,10 @@ var membrosModulo = angular.module('membrosModulo',[]);
 	}
 
 	$scope.excluir = function(){
-		if($scope.membros.codigo == undefined){
+		if($scope.membros.idMembro == undefined){
 			alert("Selecione um registro para excluir!");
 		}else{
-			$http.delete(urlMembros+'/'+$scope.membros.codigo).sucess(function(){
+			$http.delete(urlMembros+'/'+$scope.membros.idMembro).sucess(function(){
 				$scope.listarMembros();
 				$scope.limparCampos();
 			}).error (function (erro){

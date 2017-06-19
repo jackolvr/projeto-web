@@ -39,28 +39,10 @@
   <link href="css/prism.css" type="text/css" rel="stylesheet" media="screen,projection">
   <link href="js/plugins/perfect-scrollbar/perfect-scrollbar.css" type="text/css" rel="stylesheet" media="screen,projection">
   <link href="js/plugins/data-tables/css/jquery.dataTables.min.css" type="text/css" rel="stylesheet" media="screen,projection">
-  <link href="js/plugins/chartist-js/chartist.min.css" type="text/css" rel="stylesheet" media="screen,projection">
-   <!-- ================================================
-    Scripts
-    ================================================ -->
-    
-    <!-- jQuery Library -->
-    <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>    
-    <!--materialize js-->
-    <script type="text/javascript" src="js/materialize.js"></script>
-    <!--prism-->
-    <script type="text/javascript" src="js/prism.js"></script>
-    <!--scrollbar-->
-    <script type="text/javascript" src="js/plugins/perfect-scrollbar/perfect-scrollbar.min.js"></script>
-    <!-- data-tables -->
-    <script type="text/javascript" src="js/plugins/data-tables/js/jquery.dataTables.min.js"></script>
-    <script type="text/javascript" src="js/plugins/data-tables/data-tables-script.js"></script>
-    <!-- chartist -->
-    <script type="text/javascript" src="js/plugins/chartist-js/chartist.min.js"></script> 
-    <!--plugins.js - Some Specific JS codes for Plugin Settings-->
-    <script type="text/javascript" src="js/plugins.js"></script>
-    <script type="text/javascript" src="js/angular.min.js"></script>
-    <script type="text/javascript" src="controller/membros.js"></script>
+  <!--<link href="js/plugins/chartist-js/chartist.min.css" type="text/css" rel="stylesheet" media="screen,projection">-->
+  <link rel="stylesheet"  media="screen,projection" href="http://cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
+  <script src="http://cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
+
 </head>
 
 <body ng-controller="membrosController">
@@ -198,8 +180,8 @@
                               <th>Igreja Anterior</th>
                           </tr>
                       </thead>
-                      <tbody ng-repeat="membrosTabela in membros">
-                          <tr>
+                      <tbody>
+                          <tr ng-repeat="membrosTabela in membros">
                               <td>{{membrosTabela.nome}}</td>
                               <td>{{membrosTabela.telefone}}</td>
                               <td>{{membrosTabela.estCivil}}</td>
@@ -378,8 +360,27 @@
     </div>
     </footer>
     <!-- END FOOTER -->
-
-
+<!-- ================================================
+    Scripts
+    ================================================ -->
+    
+    <!-- jQuery Library -->
+    <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>    
+    <!--materialize js-->
+    <script type="text/javascript" src="js/materialize.js"></script>
+    <!--prism-->
+    <script type="text/javascript" src="js/prism.js"></script>
+    <!--scrollbar-->
+    <script type="text/javascript" src="js/plugins/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+    <!-- data-tables -->
+    <script type="text/javascript" src="js/plugins/data-tables/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="js/plugins/data-tables/data-tables-script.js"></script>
+    <!-- chartist -->
+    <!--<script type="text/javascript" src="js/plugins/chartist-js/chartist.min.js"></script> 
+    plugins.js - Some Specific JS codes for Plugin Settings-->
+    <script type="text/javascript" src="js/plugins.js"></script>
+    <script type="text/javascript" src="js/angular.min.js"></script>
+    <script type="text/javascript" src="controller/membros.js"></script>
 
    
 </body>

@@ -2,19 +2,36 @@ package model;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
+@Entity
+@Table(name="membros")
 public class MembrosModel implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
+	@Id //indica a chave primaria 
+	@GeneratedValue(strategy=GenerationType.IDENTITY) //gera valor automaticamente
+	@Column(name="idMembro")
 	Integer cod;
+	@Column(name="nome", length=45, nullable=false)
 	String nome;
+	@Column(name="telefone", length=14, nullable=true)
 	Long telefone;
+	@Column(name="estCivil", length=15, nullable=true)
 	String estCivil;
+	@Column(name="nFilhos", length=20, nullable=true)
 	Integer nFilhos;
+	@Column(name="dtBatismo", length=14, nullable=true)
 	Integer dtBatismo;
+	@Column(name="igAnterior", length=14, nullable=true)
 	String igAnterior;
 	
 	

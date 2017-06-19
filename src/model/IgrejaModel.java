@@ -2,18 +2,34 @@ package model;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
+@Entity
+@Table(name="igreja")
 public class IgrejaModel implements Serializable{
 
 	private static final long serialVersionUID = 1L;
-
+	
+	@Id //indica a chave primaria 
+	@GeneratedValue(strategy=GenerationType.IDENTITY) //gera valor automaticamente
+	@Column(name="idIgreja")
 	Integer id;
+	@Column(name="cnpj", length=13, nullable=true)
 	Long cnpj;
+	@Column(name="nome", length=45, nullable=false)
 	String nome;
+	@Column(name="endereco", length=50, nullable=true)
 	String endereco;
+	@Column(name="telefone", length=14, nullable=true)
 	Long telefone;
+	@Column(name="cebecalho", length=20, nullable=true)
 	String cabecalho;
 	
 	public IgrejaModel() {

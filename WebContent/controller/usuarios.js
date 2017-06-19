@@ -1,7 +1,7 @@
 var usuariosModulo = angular.module('usuariosModulo',[]);
 
 	usuariosModulo.controller("usuariosController", function ($scope, $http) {
-	urlUsuarios= 'http://localhost:8089/rest/usuarios';
+	urlUsuarios= 'http://localhost:8089/scmcTeste2/rest/usuarios';
 
 	$scope.listarUsuarios = function() {
 		$http.get(urlUsuarios).sucess(function (usuarios){
